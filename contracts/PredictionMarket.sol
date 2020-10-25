@@ -13,7 +13,7 @@ contract PredictionMarket {
   mapping(address => mapping(Side => uint)) public betsPerGamblers;
   address public oracle;
   address payable public feeTo;
-  uint fee;
+  uint private _fee;
 
   constructor(address _oracle, address payable _feeTo) {
     oracle = _oracle;
@@ -24,7 +24,7 @@ contract PredictionMarket {
     require(electionFinished == false, 'election is finishied');
     bets[_side] += msg.value * 995 / 1000;
     betsPerGamblers[msg.sender][_side] += msg.value * 995 / 1000;
-    fee += msg.value * 5 / 1000;
+    _fee += msg.value * 5 / 1000;
   }
 
   function withdrawGain() external {
@@ -39,7 +39,7 @@ contract PredictionMarket {
 
   function withdrawFee() external {
     require(feeTo == msg.sender, 'only feeTo address can withdraw fee');
-    feeTo.transfer(fee);
+    feeTo.transfer(_fee);
   }
 
   function reportRusult(Side _winner, Side _loser) external {
