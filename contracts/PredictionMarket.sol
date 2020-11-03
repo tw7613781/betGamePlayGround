@@ -42,7 +42,7 @@ contract PredictionMarket {
     feeTo.transfer(_fee);
   }
 
-  function reportRusult(Side _winner, Side _loser) external {
+  function reportResult(Side _winner, Side _loser) external {
     require(oracle == msg.sender, 'only oracle can report');
     require(electionFinished == false, 'election is finished');
     result.winner = _winner;
