@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/tw7613781/betGamePlayGround#readme",
   "devDependencies": {
+    "create-react-app": "^4.0.0",
     "truffle": "^5.1.50"
   }
 }
