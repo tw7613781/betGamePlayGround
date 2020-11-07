@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "npx truffle test",
-    "compile": "npx truffle compile"
+    "compile": "npx truffle compile",
+    "deploy": "npx truffle migrate --skip-dry-run --network ropsten"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/tw7613781/betGamePlayGround#readme",
   "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.2.0",
     "create-react-app": "^4.0.0",
     "truffle": "^5.1.50"
   }
